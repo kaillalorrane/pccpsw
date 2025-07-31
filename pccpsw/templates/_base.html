@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background-color: #fff0f5; /* rosa claro */
+        }
+
+        header, footer {
+            background-color: #d81b60; /* rosa escuro */
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            margin-bottom: 1rem;
+            background-color: #f8bbd0; /* rosa bebê */
+            padding: 0.8rem;
+            border-radius: 5px;
+        }
+
+        nav a {
+            margin-right: 1rem;
+            text-decoration: none;
+            color: #880e4f;
+            font-weight: bold;
+        }
+
+        main {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #e1bee7;
+        }
+
+        button {
+            background-color: #d81b60;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        a.btn {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background-color: #ec407a;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+        }
+
+        form input, form select, form textarea {
+            padding: 0.4rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            border: 1px solid #f48fb1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Vendas Escolares</h1>
+</header>
+
+<nav>
+    <a href="/usuario/index.html/">Usuários</a>
+    <a href="/produto/">Produtos</a>
+    <a href="/venda/">Vendas</a>
+    <a href="/venda_produto/">Itens de Venda</a>
+    <a href="/estabelecimento/">Estabelecimentos</a>
+</nav>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2025 - Kailla, Livia e Sarah </p>
+</footer>
+
+</body>
+</html>

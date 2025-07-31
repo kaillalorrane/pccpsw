@@ -1,0 +1,8 @@
+{%extends "_base.html"%}
+{%block conteudo %}
+  <h1>{{usuario.user}}</h1>
+  <p> CPF: {{usuario.cpf}}</p>
+  <p> Telefone: {{usuario.telefone}}</p>
+  <p> Data de nascimento: {{usuario.dt_nasc}}</p>
+  <a href="{%url 'index-usuario'%}">Voltar</a>
+{%endblock%}
