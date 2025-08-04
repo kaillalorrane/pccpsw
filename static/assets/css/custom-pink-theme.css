@@ -1,0 +1,267 @@
+:root {
+  /* Primary Pink Colors */
+  --pink-primary: #e91e63;
+  --pink-primary-dark: #c2185b;
+  --pink-primary-light: #f06292;
+  --pink-accent: #ff4081;
+  --pink-bg-light: #fce4ec;
+  --pink-bg-medium: #f8bbd9;
+  --pink-bg-dark: #f48fb1;
+  --pink-text-dark: #880e4f;
+  --pink-text-medium: #ad1457;
+
+  /* Override Bootstrap theme colors */
+  --bs-primary: var(--pink-primary);
+  --bs-primary-rgb: 233, 30, 99;
+  --bs-secondary: var(--pink-primary-dark);
+  --bs-info: #e91e63;
+  --bs-warning: #ff6f00;
+  --bs-danger: #d32f2f;
+  --bs-success: #388e3c;
+
+  /* Custom theme variables */
+  --navbar-bg: var(--pink-primary);
+  --sidebar-bg: #fce4ec;
+  --card-header-bg: var(--pink-primary);
+  --table-header-bg: var(--pink-primary-dark);
+  --footer-bg: var(--pink-bg-medium);
+}
+
+/* Layout Colors */
+.layout-wrapper {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+}
+
+/* Sidebar Styling */
+.layout-menu {
+  background: var(--sidebar-bg) !important;
+  border-right: 2px solid var(--pink-primary-light);
+}
+
+.app-brand-link {
+  color: var(--pink-text-dark) !important;
+}
+
+.app-brand-text {
+  color: var(--pink-text-dark) !important;
+  font-weight: bold;
+}
+
+.menu-item .menu-link {
+  color: var(--pink-text-medium) !important;
+  transition: all 0.3s ease;
+}
+
+.menu-item .menu-link:hover,
+.menu-item.active .menu-link {
+  background: var(--pink-primary-light) !important;
+  color: white !important;
+  border-radius: 8px;
+  margin: 2px 8px;
+}
+
+.menu-header-text {
+  color: var(--pink-text-dark) !important;
+  font-weight: 600;
+}
+
+/* Navbar Styling */
+.layout-navbar {
+  background: var(--navbar-bg) !important;
+  border-bottom: 2px solid var(--pink-primary-light);
+}
+
+.navbar .form-control {
+  border: 2px solid var(--pink-bg-medium);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.navbar .form-control:focus {
+  border-color: var(--pink-accent);
+  box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--pink-primary) !important;
+  border-color: var(--pink-primary) !important;
+  color: white !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: var(--pink-primary-dark) !important;
+  border-color: var(--pink-primary-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(233, 30, 99, 0.3);
+}
+
+.btn-info {
+  background: var(--pink-accent) !important;
+  border-color: var(--pink-accent) !important;
+  color: white !important;
+}
+
+.btn-warning {
+  background: #ff6f00 !important;
+  border-color: #ff6f00 !important;
+}
+
+.btn-danger {
+  background: #d32f2f !important;
+  border-color: #d32f2f !important;
+}
+
+/* Cards */
+.card {
+  border: 2px solid var(--pink-bg-medium);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+  overflow: hidden;
+}
+
+.card-header {
+  background: var(--card-header-bg) !important;
+  color: white !important;
+  font-weight: 600;
+  border-bottom: 2px solid var(--pink-primary-light);
+}
+
+/* Tables */
+.table thead th {
+  background: var(--table-header-bg) !important;
+  color: white !important;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+  background: rgba(252, 228, 236, 0.5);
+}
+
+.table-hover > tbody > tr:hover > td {
+  background: rgba(233, 30, 99, 0.1);
+}
+
+.table-bordered {
+  border: 2px solid var(--pink-bg-medium);
+}
+
+.table td {
+  border-color: var(--pink-bg-medium);
+  vertical-align: middle;
+}
+
+/* Page Header */
+.fw-bold {
+  color: var(--pink-text-dark) !important;
+}
+
+.text-muted {
+  color: var(--pink-text-medium) !important;
+}
+
+/* Footer */
+.content-footer {
+  background: var(--footer-bg) !important;
+  border-top: 2px solid var(--pink-primary-light);
+  color: var(--pink-text-dark) !important;
+}
+
+/* Icons */
+.bx {
+  color: inherit;
+}
+
+.menu-icon {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+/* Content Area */
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  margin: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-xxl {
+  background: transparent;
+}
+
+/* User Dropdown */
+.dropdown-menu {
+  border: 2px solid var(--pink-bg-medium);
+  border-radius: 8px;
+}
+
+.dropdown-item:hover {
+  background: var(--pink-bg-light);
+  color: var(--pink-text-dark);
+}
+
+/* Avatar */
+.avatar img {
+  border: 2px solid var(--pink-primary-light);
+}
+
+/* Empty State */
+.text-center .bx-user-x {
+  color: var(--pink-primary-light) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .layout-menu {
+    background: var(--pink-bg-light) !important;
+  }
+
+  .content-wrapper {
+    margin: 5px;
+    border-radius: 8px;
+  }
+}
+
+/* Animation for smooth transitions */
+.btn,
+.menu-link,
+.card {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pink-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-primary);
+}
+
+/* Loading states */
+.btn:disabled {
+  background: var(--pink-bg-medium) !important;
+  border-color: var(--pink-bg-medium) !important;
+  opacity: 0.6;
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.form-control:focus,
+.menu-link:focus {
+  outline: 2px solid var(--pink-accent);
+  outline-offset: 2px;
+}
