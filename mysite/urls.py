@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('pedido/', include('pedido.urls')),
     path('itempedido/', include('itempedido.urls')),
     path('categoria/', include('categoria.urls')),
+    path('', views.home, name='home'),
 ]

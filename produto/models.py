@@ -12,6 +12,10 @@ class Produto(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    @property
+    def esgotado(self):
+        return self.estoque <= 0
 
     
 

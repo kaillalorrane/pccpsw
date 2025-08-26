@@ -18,4 +18,12 @@ class Itempedido(models.Model):
 
         self.total = self.preco * self.qtd
         
+        if self.produto.estoque < self.quantidade:
+            raise ValueError(
+                f"Estoque insuficiente para {self.produto.nome}. "
+                f"Disponível: {self.produto.estoque}"
+                )
+        self.produto.estoque -= self.quantidade
+        self.produto.save()
+        
         super().save(*args, **kwargs)

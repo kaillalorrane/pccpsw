@@ -1,27 +1,43 @@
-{% extends "_base.html" %}
-    {% block content %}
-    <form method="post" action="">
-        {%csrf_token%}
-        {{form.as_p}}
-        <input type="reset" value="Cancelar"/>
-        <input type="submit" value="Salvar"/>
-    </form>
+{% extends 'base.html' %}
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% block content %}
+<div class="container mt-4">
+  <h2>Novo Pedido</h2>
+
+  <div class="card p-3 mb-3">
+    <h4>{{ produto.nome }}</h4>
+    <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="id_quantidade" class="form-label">Quantidade:</label>
+      <input type="number" name="quantidade" id="id_quantidade" class="form-control" value="1" min="1" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Total:</label>
+      <input type="text" id="total" class="form-control" value="{{ produto.preco }}" readonly>
+    </div>
+
+    <button type="submit" class="btn btn-success">Confirmar Pedido</button>
+    <a href="{% url 'itempedido_index' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+
 <script>
-    $('#id_produto').change(function() {
-        var produto_id = $(this).val();
-        if (produto_id) {
-            $.ajax({
-    url: "{% url 'get_preco_produto' %}",
-    data: {
-        'produto_id': produto_id
-    },
-    success: function(data) {
-        $('#id_preco').val(data.preco);
-    }
-});
+  const preco = {{ produto.preco|floatformat:2 }};
+  const quantidadeInput = document.getElementById("id_quantidade");
+  const totalInput = document.getElementById("total");
 
-    });
+  function atualizarTotal() {
+    const qtd = parseInt(quantidadeInput.value) || 1;
+    totalInput.value = (qtd * preco).toFixed(2);
+  }
+
+  quantidadeInput.addEventListener("input", atualizarTotal);
 </script>
-    {%endblock%}
+{% endblock %}
+

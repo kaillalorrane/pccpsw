@@ -5,7 +5,20 @@
     <p><strong>Descrição:</strong> {{ produto.descrição }}</p>
     <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
     <p><strong>Valor de Venda:</strong> R$ {{ produto.preco }}</p>
-    <p><strong>Estoque:</strong> {{ produto.estoque }}</p>
+    <p><strong>Estoque:</strong> 
+        {% if produto.esgotado %}
+            <span class="badge bg-danger">Esgotado</span>
+        {% else %}
+            {{ produto.estoque }}
+        {% endif %}
+    </p>
     <p><strong>Estabelecimento:</strong> {{ produto.estabelecimento }}</p>
+    {% if produto.esgotado %}
+        <button class="btn btn-secondary" disabled>Indisponível</button>
+    {% else %}
+        <a href="{% url 'itempedido_create' produto.id %}" class="btn btn-success">Comprar</a>
+    {% endif %}
+
+    <br><br>
     <a href="{% url 'produto_index' %}">Voltar</a>
 {%endblock%}

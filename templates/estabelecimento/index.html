@@ -3,13 +3,13 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
 
-    <h2>Lista de Estabelecimentos </h2>
-    <a href="{% url 'estabelecimento_create' %}"> Novo + </a>
+    <h3>Lista de Estabelecimentos </h3>
+    <a href="{% url 'estabelecimento_create' %}" style="color: #0552ac"> Novo + </a>
 </div>
     
 <div class="table-responsive">
-    <table class="table table-bordered table-striped table-hover">
-        <thead class="table-dark">
+    <table class="table">
+        <thead class="table" style="background-color: #B7D5E5">
        <tr>
         <th> Nome</th>
         <th> CNPJ </th>
@@ -31,8 +31,8 @@
             <td>{{estabelecimento.rua}}</td>
             <td>{{estabelecimento.numero}}</td>
             <td>{{estabelecimento.bairro}}</td>
-            <td><a href="{% url 'estabelecimento_detail' estabelecimento.id %}" class="btn btn-info btn-sm">Detalhar</a></td>
-            <td><a href="{% url 'estabelecimento_edit' estabelecimento.id %}" class="btn btn-warning btn-sm">Editar</a></td>
+            <td><a href="{% url 'estabelecimento_detail' estabelecimento.id %}" class="btn btn-primary btn-sm">Detalhar</a></td>
+            <td><a href="{% url 'estabelecimento_edit' estabelecimento.id %}" class="btn btn-secondary btn-sm">Editar</a></td>
             <td><a href="{% url 'estabelecimento_delete' estabelecimento.id %}" class="btn btn-danger btn-sm">Excluir</a></td>
             </tr>
         {% empty %}
