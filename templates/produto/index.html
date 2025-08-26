@@ -11,10 +11,10 @@
     <table class="table table-bordered table-striped table-hover">
         <thead class="table-dark">
        <tr>
-        <th> Nome</th>
+        <th> Nome </th>
         <th> Descrição </th>
-        <th> Preço de Venda </th>
-        <th> Unidade </th>
+        <th> Preco de Venda </th>
+        {% comment %} <th> Unidade </th> {% endcomment %}
         <th> Estoque </th>
         <th> Categoria </th>
         <th> Estabelecimento </th>
@@ -26,7 +26,7 @@
             <tr>
             <td>{{ produto.nome }} </td>
             <td>{{ produto.descrição }}</td>
-            <td>R$ {{ produto.valor_venda }}</td>
+            <td>R$ {{ produto.preco }}</td>
             <td>{{ produto.estoque }}</td>
             <td>{{ produto.categoria }}</td>
             <td>{{ produto.estabelecimento }}</td>

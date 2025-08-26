@@ -17,8 +17,8 @@ def create(request):
         form = UsuarioForm()
     return render(request, 'usuario/criar.html', {'form': form})
 
-def edit(request, id):
-    usuario = Usuario.objects.get(id=id)
+def edit(request, usuario_id):
+    usuario = Usuario.objects.get(id=usuario_id)
     if request.method == 'POST':
         form = UsuarioUpdateForm(request.POST, instance=usuario)
         if form.is_valid():
@@ -27,12 +27,12 @@ def edit(request, id):
     else:
         form = UsuarioUpdateForm(instance=usuario)
     return render(request, 'usuario/atualizar.html', {'form': form})
-def delete(request, id_usuario): 
-    Usuario.objects.get(id=id_usuario) .delete()
+def delete(request, usuario_id): 
+    Usuario.objects.get(id=usuario_id) .delete()
 
     return HttpResponseRedirect('/usuario/') 
 
-def detail(request, id_usuario):
+def detail(request, usuario_id):
 
-    usuario = Usuario.objects.get(id=id_usuario)
+    usuario = Usuario.objects.get(id=usuario_id)
     return render(request, 'usuario/detalhar.html', {'usuario': usuario})     

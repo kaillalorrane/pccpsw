@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+    {% block content %}
+    <form method="post" action="">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="reset" value="Cancelar"/>
+        <input type="submit" value="Salvar"/>
+    </form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#id_produto').change(function() {
+        var produto_id = $(this).val();
+        if (produto_id) {
+            $.ajax({
+    url: "{% url 'get_preco_produto' %}",
+    data: {
+        'produto_id': produto_id
+    },
+    success: function(data) {
+        $('#id_preco').val(data.preco);
+    }
+});
+
+    });
+</script>
+    {%endblock%}

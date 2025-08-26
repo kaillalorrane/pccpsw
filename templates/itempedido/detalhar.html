@@ -1,0 +1,11 @@
+{%extends "_base.html"%}
+{% block content %}
+ <h2>Detalhes do Item do Pedido</h2>
+    <p><strong>ID:</strong> {{itempedido.id}}</p>   
+    <p><strong>Pedido:</strong> {{itempedido.pedido}}</p>
+    <p><strong>Produto:</strong> {{itempedido.produto}}</p>
+    <p><strong>Quantidade:</strong> {{itempedido.qtd}}</p>
+    <p><strong>Preco Unitário:</strong> R$ {{itempedido.preco}}</p>
+    <p><strong> Total:</strong> R$ {{ itempedido.quantidade|floatformat:2|add:itempedido.preco }}</p>
+    <a href="{%url 'itempedido_index' %}">Voltar</a>
+{%endblock%}

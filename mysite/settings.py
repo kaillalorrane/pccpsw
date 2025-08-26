@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,11 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'usuario.apps.UsuarioConfig',
-    'produto.apps.ProdutoConfig',
-    'estabelecimento.apps.EstabelecimentoConfig',
-    'pedido.apps.PedidoConfig',
-    'item_pedido.apps.ItemPedidoConfig',
+    'usuario',
+    'produto',
+    'estabelecimento',
+    'pedido',
+    'itempedido',
     'categoria',
 ]
 
