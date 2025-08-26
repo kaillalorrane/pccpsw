@@ -1,0 +1,43 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Lista de Produtos</h2>
+    <a href="{% url 'produto_create' %}"> Novo + </a>
+</div>
+    
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+       <tr>
+        <th> Nome</th>
+        <th> Descrição </th>
+        <th> Preço de Venda </th>
+        <th> Unidade </th>
+        <th> Estoque </th>
+        <th> Categoria </th>
+        <th> Estabelecimento </th>
+        <th> Opções </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for produto in produtos %}
+            <tr>
+            <td>{{ produto.nome }} </td>
+            <td>{{ produto.descrição }}</td>
+            <td>R$ {{ produto.valor_venda }}</td>
+            <td>{{ produto.estoque }}</td>
+            <td>{{ produto.categoria }}</td>
+            <td>{{ produto.estabelecimento }}</td>
+            <td>
+                <a href="{% url 'produto_detail' produto.id %}" class="btn btn-info btn-sm">Detalhar</a>
+                <a href="{% url 'produto_edit' produto.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'produto_delete' produto.id %}" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
+            </tr>
+        {% endfor %} 
+        </tbody>   
+        </table>
+    </div>
+{% endblock %}

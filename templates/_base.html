@@ -73,11 +73,12 @@
 </header>
 
 <nav>
-    <a href="/usuario/index.html/">Usuários</a>
-    <a href="/produto/">Produtos</a>
-    <a href="/venda/">Vendas</a>
-    <a href="/venda_produto/">Itens de Venda</a>
-    <a href="/estabelecimento/">Estabelecimentos</a>
+    <a href="{% url 'usuario_index' %}">Usuários</a>
+    <a href="{% url 'produto_index' %}">Produtos</a>
+    <a href="{% url 'categoria_index' %}">Categorias</a>
+    <a href="#">Pedidos</a>
+    <a href="#">Itens de Pedidos</a>
+    <a href="{% url 'estabelecimento_index' %}">Estabelecimentos</a>
 </nav>
 
 <main>

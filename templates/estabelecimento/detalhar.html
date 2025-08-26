@@ -1,0 +1,14 @@
+{%extends "_base.html"%}
+{% block content %}
+<h1>Detalhes do Estabelecimento</h1>
+<p><strong>Nome:</strong> {{ estabelecimento.nome }}</p>    
+<p><strong>Responsável:</strong> {{ estabelecimento.responsavel }}</p>
+<p><strong>CNPJ:</strong> {{ estabelecimento.cnpj }}</p>
+<p><strong>Telefone:</strong> {{ estabelecimento.telefone }}</p>
+<p><strong>Rua:</strong> {{ estabelecimento.rua }}</p>
+<p><strong>Número:</strong> {{ estabelecimento.numero }}</p>
+<p><strong>Bairro:</strong> {{ estabelecimento.bairro }}</p>
+
+<a href="{%url 'estabelecimento_index'%}">Voltar</a>
+
+{%endblock%}

@@ -36,4 +36,4 @@ def delete(request, categoria_id):
 def detail(request, categoria_id):
 
     categoria = Categoria.objects.get(id=categoria_id)
-    return render(request, 'pessoa/detalhe.html', {'pessoa': categoria})     
+    return render(request, 'categoria/detalhar.html', {'categoria': categoria})     

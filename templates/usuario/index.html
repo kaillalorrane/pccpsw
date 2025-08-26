@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
 
     <h2>Lista de Usuarios</h2>
-    <a href="{% url 'add-usuario'%}"> Novo + </a>
+    <a href="{% url 'usuario_create' %}"> Novo + </a>
 </div>
     
 <div class="table-responsive">
@@ -15,9 +15,7 @@
         <th> CPF </th>
         <th> Telefone </th>
         <th> Data de nascimento </th>
-        <th> Opção 1 </th>
-        <th> Opção 2</th>
-        <th> Opção 3 </th>
+        <th> Opções </th>
         </tr>
     </thead>
     <tbody>
@@ -27,9 +25,11 @@
             <td>{{usuario.cpf}}</td>
             <td>{{usuario.telefone}}</td>
             <td>{{usuario.dt_nasc}}</td>
-            <td> <a href='/usuario/{{usuario.id}}/'class='btn btn-info btn-sm'> Detail </a> </td>
-            <td> <a href='/usuario/update/{{usuario.id}}/'class='btn btn-warning btn-sm'> Editar </a> </td>
-            <td> <a href='/usuario/delete/{{usuario.id}}/'class='btn btn-danger btn-sm'> Excluir </a> </td>
+            <td>
+                <a href="{% url 'usuario_detail' usuario.id %}" class="btn btn-info btn-sm">Detalhar</a>
+                <a href="{% url 'usuario_edit' usuario.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'usuario_delete' usuario.id %}" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
             </tr>
         {% endfor %} 
         </tbody>   

@@ -35,4 +35,4 @@ def delete(request, id_usuario):
 def detail(request, id_usuario):
 
     usuario = Usuario.objects.get(id=id_usuario)
-    return render(request, 'pessoa/detalhe.html', {'pessoa': usuario})     
+    return render(request, 'usuario/detalhar.html', {'usuario': usuario})     

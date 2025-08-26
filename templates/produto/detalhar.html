@@ -1,0 +1,11 @@
+{%extends "_base.html"%}
+{% block content %}
+    <h1>Detalhes do Produto</h1>
+    <p><strong>Nome:</strong> {{ produto.nome }}</p>
+    <p><strong>Descrição:</strong> {{ produto.descrição }}</p>
+    <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+    <p><strong>Valor de Venda:</strong> R$ {{ produto.valor_venda }}</p>
+    <p><strong>Estoque:</strong> {{ produto.estoque }}</p>
+    <p><strong>Estabelecimento:</strong> {{ produto.estabelecimento }}</p>
+    <a href="{% url 'produto_index' %}">Voltar</a>
+{%endblock%}
