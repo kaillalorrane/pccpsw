@@ -5,18 +5,18 @@ from produto.models import Produto
 class Itempedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    qtd = models.DecimalField(max_digits=10, decimal_places=2)
+    quantidade = models.PositiveIntegerField(default=1)
     preco = models.DecimalField(max_digits=10, decimal_places=2, editable=False, blank=True)
     total = models.DecimalField(max_digits=10, decimal_places=2, editable=False, blank=True)
 
     def __str__(self):
-        return f"{self.qtd}x {self.produto.nome} (R${self.preco})"
+        return f"{self.quantidade}x {self.produto.nome} (R${self.preco})"
 
     def save(self, *args, **kwargs):
         if self.produto:
             self.preco = self.produto.preco
 
-        self.total = self.preco * self.qtd
+        self.total = self.preco * self.quantidade
         
         if self.produto.estoque < self.quantidade:
             raise ValueError(

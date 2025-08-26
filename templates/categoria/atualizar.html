@@ -3,7 +3,7 @@
     <form method="post" action="">
         {%csrf_token%}
         {{form.as_p}}
-        <input type="reset" value="Cancelar"/>
-        <input type="submit" value="Salvar"/>
+        <input type="reset" value="Cancelar" class="btn btn-outline-warning btn-sm"//>
+        <input type="submit" value="Salvar" class="btn btn-outline-success btn-sm"/>
     </form>
     {%endblock%}
