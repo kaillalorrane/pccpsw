@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Novo Pedido</h2>
+
+  <div class="card p-3 mb-3">
+    <h4>{{ produto.nome }}</h4>
+    <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="id_quantidade" class="form-label">Quantidade:</label>
+      <input type="number" name="quantidade" id="id_quantidade" class="form-control" value="1" min="1" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Total:</label>
+      <input type="text" id="total" class="form-control" value="{{ produto.preco }}" readonly>
+    </div>
+
+    <button type="submit" class="btn btn-success">Confirmar Pedido</button>
+    <a href="{% url 'itempedido_index' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+
+<script>
+  const preco = {{ produto.preco|floatformat:2 }};
+  const quantidadeInput = document.getElementById("id_quantidade");
+  const totalInput = document.getElementById("total");
+
+  function atualizarTotal() {
+    const qtd = parseInt(quantidadeInput.value) || 1;
+    totalInput.value = (qtd * preco).toFixed(2);
+  }
+
+  quantidadeInput.addEventListener("input", atualizarTotal);
+</script>
+{% endblock %}
+

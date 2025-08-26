@@ -1,0 +1,12 @@
+{%extends "_base.html"%}
+{% block content %}
+    <h2>Excluir Estabelecimento</h2>
+    <p>Tem certeza que deseja excluir o estabelecimento "{{ estabelecimento.nome }}"?</p>
+    
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ estabelecimento.id }}">
+        <input type="submit" value="Confirmar Exclusão" class="btn btn-danger"/>
+        <a href="{% url 'estabelecimento_index' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{%endblock%}
