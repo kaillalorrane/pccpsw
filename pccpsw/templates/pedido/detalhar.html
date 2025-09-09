@@ -1,0 +1,11 @@
+{%extends "_base.html"%}
+{% block content %}
+ <h2>Detalhes do Pedido</h2>
+    <p><strong>ID:</strong> {{pedido.id}}</p>
+    <p><strong>Data do Pedido:</strong> {{pedido.dt_hora}}</p>
+    <p><strong>Cliente:</strong> {{pedido.cliente}}</p>
+    <p><strong>Estabelecimento:</strong> {{pedido.estabelecimento}}</p>
+    <p><strong>Status:</strong> {{pedido.status}}</p>
+    
+  <a href="{%url 'pedido_index' %}">Voltar</a>
+{%endblock%}

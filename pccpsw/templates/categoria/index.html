@@ -1,0 +1,32 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h3>Lista de Categorias</h3>
+    <a href="{% url 'categoria_create' %}" style="color: #0552ac"> Novo + </a>
+</div>
+    
+<div class="table-responsive">
+    <table class="table">
+        <thead class="table" style="background-color: #B7D5E5">
+       <tr>
+        <th> Nome</th>
+        <th> Descrição </th>
+        <th> Opção </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+            <tr>
+            <td>{{categoria.nome}} </td>
+            <td>{{categoria.descricao}} </td>
+            <td>
+            <a href="{% url 'categoria_edit' categoria_id=categoria.id %}" class='btn btn-secondary btn-sm'> Editar </a>
+            <a href="{% url 'categoria_delete' categoria_id=categoria.id %}" class='btn btn-danger btn-sm'> Excluir </a>
+            </tr>
+        {% endfor %} 
+        </tbody>   
+        </table>
+    </div>
+{% endblock %}
