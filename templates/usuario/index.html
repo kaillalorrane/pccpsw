@@ -15,6 +15,9 @@
         <th> CPF </th>
         <th> Telefone </th>
         <th> Data de nascimento </th>
+        <th> Rua </th>
+        <th> Número </th>
+        <th> Bairro </th>
         <th> Opções </th>
         </tr>
     </thead>
@@ -25,6 +28,9 @@
             <td>{{usuario.cpf}}</td>
             <td>{{usuario.telefone}}</td>
             <td>{{usuario.dt_nasc}}</td>
+            <td>{{usuario.rua}}</td>
+            <td>{{usuario.numero}}</td>
+            <td>{{usuario.bairro}}</td>
             <td>
                 <a href="{% url 'usuario_detail' usuario.id %}" class="btn btn-primary btn-sm">Detalhar</a>
                 <a href="{% url 'usuario_edit' usuario.id %}" class="btn btn-secondary btn-sm">Editar</a>

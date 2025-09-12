@@ -1,43 +1,29 @@
-{% extends '_base.html' %}
-
+{%extends "_base.html"%}
 {% block content %}
-<div class="container mt-4">
-  <h2>Novo Pedido</h2>
-
-  <div class="card p-3 mb-3">
-    <h4>{{ produto.nome }}</h4>
-    <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
-  </div>
-
-  <form method="post">
-    {% csrf_token %}
-
-    <div class="mb-3">
-      <label for="id_quantidade" class="form-label">Quantidade:</label>
-      <input type="number" name="quantidade" id="id_quantidade" class="form-control" value="1" min="1" required>
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Total:</label>
-      <input type="text" id="total" class="form-control" value="{{ produto.preco }}" readonly>
-    </div>
-
-    <button type="submit" class="btn btn-success">Confirmar Pedido</button>
-    <a href="{% url 'itempedido_index' %}" class="btn btn-secondary">Cancelar</a>
-  </form>
-</div>
+    <form method="post" action="">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="reset" value="Cancelar" class="btn btn-outline-warning btn-sm"//>
+        <input type="submit" value="Salvar" class="btn btn-outline-success btn-sm"/>
+    </form>
+    
+{%endblock%}
 
 <script>
-  const preco = {{ produto.preco|floatformat:2 }};
-  const quantidadeInput = document.getElementById("id_quantidade");
-  const totalInput = document.getElementById("total");
+document.addEventListener("DOMContentLoaded", function() {
+    // Captura o texto de erro que o Django exibiu (se existir)
+    let bodyText = document.body.innerText;
+    
+    // Procura a mensagem específica de estoque insuficiente
+    let match = bodyText.match(/Estoque insuficiente.*Disponível: \d+/);
 
-  function atualizarTotal() {
-    const qtd = parseInt(quantidadeInput.value) || 1;
-    totalInput.value = (qtd * preco).toFixed(2);
-  }
+    if (match) {
+        let errorMessage = match[0];
 
-  quantidadeInput.addEventListener("input", atualizarTotal);
+        // Exibe no box de erro no topo do formulário
+        let errorBox = document.getElementById("error-box");
+        errorBox.innerText = errorMessage;
+        errorBox.style.display = "block";
+    }
+});
 </script>
-{% endblock %}
-

@@ -16,7 +16,7 @@
     {% if produto.esgotado %}
         <button class="btn btn-secondary" disabled>Indisponível</button>
     {% else %}
-        <a href="{% url 'itempedido_create' produto.id %}" class="btn btn-success">Comprar</a>
+        <a href="{% url 'itempedido_create' %}" class="btn btn-success">Comprar</a>
     {% endif %}
 
     <br><br>

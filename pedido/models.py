@@ -15,7 +15,7 @@ class Pedido(models.Model):
     cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='vendedor_estabelecimentos')
     estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
-    dt_hora = models.DateTimeField(auto_now_add=True)
+    dt_hora = models.DateTimeField(auto_now_add=True, verbose_name='Data e Hora do Pedido')
     status = models.CharField(max_length=20, choices=STATUS, default='Pendente')
 
     def __str__(self):

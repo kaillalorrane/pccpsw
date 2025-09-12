@@ -9,7 +9,8 @@ class ItempedidoForm(forms.ModelForm):
             'pedido': forms.Select(attrs={'class': 'form-control'}),
             'produto': forms.Select(attrs={'class': 'form-control', 'id': 'id_produto'}),
             'quantidade': forms.NumberInput(attrs={'class': 'form-control'}),
-        }
+        }    
+        
     def clean(self):
         cleaned_data = super().clean()
         produto = cleaned_data.get('produto')

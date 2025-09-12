@@ -4,27 +4,34 @@ from produto.models import Produto
 from pedido.models import Pedido
 from .models import Itempedido
 from .forms import ItempedidoForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
+@login_required
+@permission_required('itempedido.view_itempedido', raise_exception=True)
 def index(request):
    itempedidos = Itempedido.objects.all()
    return render(request, 'itempedido/index.html', {'itempedidos': itempedidos})
+
 @login_required
-def create(request, produto_id):
-    produto = get_object_or_404(Produto, id=produto_id)
-    pedido = Pedido.objects.get(cliente=request.user, status="aberto")
-    if request.method == "POST":
-        quantidade = int(request.POST.get("quantidade", 1))
-        item = Itempedido.objects.create(
-            pedido=pedido,
-            produto=produto,
-            quantidade=quantidade,
-            total=produto.preco * quantidade
-        )
-        return redirect("index.html")  # ajuste para a rota da listagem
+@permission_required('itempedido.add_itempedido', raise_exception=True)
+def create(request): 
+    if request.method == 'POST':
+        form = ItempedidoForm(request.POST)
+        
+        if form.is_valid():
+            try:
+                form.save()
+                return HttpResponseRedirect('/itempedido/')
+            except ValueError as e:
+                # Captura o erro vindo do save() e adiciona no formulário
+                form.add_error(None, str(e))
+    else:
+        form = ItempedidoForm()
+    
+    return render(request, 'itempedido/criar.html', {'form': form})
 
-    return render(request, "itempedido/criar.html", {"produto": produto})
-
+@login_required
+@permission_required('itempedido.change_itempedido', raise_exception=True)
 def edit(request, itempedido_id):
     itempedido = Itempedido.objects.get(id=itempedido_id)
     if request.method == 'POST':
@@ -36,16 +43,22 @@ def edit(request, itempedido_id):
         form = ItempedidoForm(instance=itempedido)
     return render(request, 'itempedido/atualizar.html', {'form': form})
 
+@login_required
+@permission_required('itempedido.delete_itempedido', raise_exception=True)
 def delete(request, itempedido_id):
     Itempedido.objects.get(id=itempedido_id) .delete()
 
     return HttpResponseRedirect('/itempedido/')
 
+@login_required
+@permission_required('itempedido.view_itempedido', raise_exception=True)
 def detail(request, itempedido_id):
 
     itempedido = Itempedido.objects.get(id=itempedido_id)
     return render(request, 'itempedido/detalhar.html', {'itempedido': itempedido})
 
+@login_required
+@permission_required('itempedido.view_itempedido', raise_exception=True)
 def get_preco_produto(request):
     produto_id = request.GET.get('produto_id')
     preco = 0
