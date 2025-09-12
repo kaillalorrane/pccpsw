@@ -105,6 +105,7 @@ Caso existam usuários pré-definidos para testes, utilize as credenciais abaixo
 | ------- | --------- | ------------- |
 | admin   | 1234      | Administrador |
 | kah     | abcd1234e | Cliente       |
+| livia_castro| abcd1234e | Vendedor  |
 
 > Se não houver usuários cadastrados, crie uma nova conta diretamente no sistema.
 
