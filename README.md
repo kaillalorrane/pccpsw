@@ -11,7 +11,7 @@
 
 ## 📌 Sobre o Projeto
 
-Este projeto é o *Trabalho de Conclusão de Curso (PCC)* do curso Técnico em Informática para Internet do *IF Baiano – Campus Guanambi*.  
+Este projeto é o *Trabalho de Conclusão de Curso (PCC) e Trabalho Final da Disciplina de Programação de Sistemas para Web II (PSW II)* do curso Técnico em Informática para Internet do *IF Baiano – Campus Guanambi*.  
 O objetivo foi desenvolver uma *plataforma de e-commerce* voltada para o ambiente escolar, unindo tecnologia, inovação e empreendedorismo.
 
 A proposta é proporcionar uma ferramenta acessível e intuitiva, que facilita a compra e venda de produtos dentro da comunidade acadêmica (alunos, professores e empreendedores locais).  
@@ -100,16 +100,13 @@ Desenvolver um sistema de e-commerce alimentício no âmbito escolar do IF Baian
 
 ## 🔑 Instruções de Acesso
 
-Caso existam usuários pré-definidos para testes, utilize as credenciais abaixo:
+ Utilize as credenciais abaixo de usuários pré-definidos para testes,:
 
 | Usuário | Senha     | Perfil        |
 | ------- | --------- | ------------- |
 | admin   | 1234      | Administrador |
 | livia_castro| abcd1234e | Vendedor       |
 | kah     | abcd1234e | Cliente       |
-
-
-> Se não houver usuários cadastrados, crie uma nova conta diretamente no sistema.
 
 ---
 
